@@ -2,13 +2,13 @@
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 --drop campaign table if already exists
-DROP TABLE "Campaign";
+DROP TABLE IF EXISTS "Campaign";
 --drop contacts table if already exists
-DROP TABLE "Contacts";
+DROP TABLE IF EXISTS "Contacts";
 --drop category table if already exists
-DROP TABLE "Category";
+DROP TABLE IF EXISTS "Category";
 --drop subcategory table if already exists
-DROP TABLE "Subcategory";
+DROP TABLE IF EXISTS "Subcategory";
 
 --create category table
 CREATE TABLE "Category" (
@@ -66,3 +66,7 @@ REFERENCES "Category" ("category_id");
 ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_subcategory_id" FOREIGN KEY("subcategory_id")
 REFERENCES "Subcategory" ("subcategory_id");
 
+SELECT * FROM "Campaign";
+SELECT * FROM "Category";
+SELECT * FROM "Subcategory";
+SELECT * FROM "Contacts";

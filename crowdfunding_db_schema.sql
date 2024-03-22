@@ -1,7 +1,10 @@
 ﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
+--drop campaign table if already exists
+DROP TABLE Campaign
 
+--create campaign table
 CREATE TABLE "Campaign" (
     "cf_id" INT   NOT NULL,
     "contact_id" INT   NOT NULL,
@@ -22,6 +25,10 @@ CREATE TABLE "Campaign" (
      )
 );
 
+--drop contacts table if already exists
+DROP TABLE Contacts
+
+--create contacts table
 CREATE TABLE "Contacts" (
     "contact_id" INT   NOT NULL,
     "first_name" VARCHAR   NOT NULL,
@@ -32,6 +39,10 @@ CREATE TABLE "Contacts" (
      )
 );
 
+--drop category table if already exists
+DROP TABLE Category
+
+--create category table
 CREATE TABLE "Category" (
     "category_id" VARCHAR   NOT NULL,
     "category" VARCHAR   NOT NULL,
@@ -40,6 +51,10 @@ CREATE TABLE "Category" (
      )
 );
 
+--drop subcategory table if already exists
+DROP TABLE Subcategory
+
+--create subcategory table
 CREATE TABLE "Subcategory" (
     "subcategory_id" VARCHAR   NOT NULL,
     "subcategory" VARCHAR   NOT NULL,
@@ -48,6 +63,7 @@ CREATE TABLE "Subcategory" (
      )
 );
 
+-- alter tables to relate to each other using foreign keys
 ALTER TABLE "Campaign" ADD CONSTRAINT "fk_Campaign_contact_id" FOREIGN KEY("contact_id")
 REFERENCES "Contacts" ("contact_id");
 
